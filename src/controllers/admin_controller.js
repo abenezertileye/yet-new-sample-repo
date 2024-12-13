@@ -1,5 +1,7 @@
-const { name } = require('ejs');
 const Schedule = require('../models/schedule')
+const Bus = require('../models/bus')
+const Driver = require('../models/driver')
+const Helper = require('../models/helper')
 
 exports.createSchedule = async (req, res) => {
   const { schedule_name, driverId, helperId, routeId, busId, date, laps, expected_income } = req.body;
@@ -78,6 +80,90 @@ exports.getAllSchedules= async (req, res) => {
       res.status(500).json({
         success: false,
         message: "Failed to retrieve schedule",
+        error: error.message,
+      });
+    }
+  };
+exports.getAllDriver= async (req, res) => {
+    try {
+      // Retrieve all JobPost documents from the database
+      const driver = await Driver.find();
+  
+      // Send the retrieved driver as the response
+      res.status(200).json({
+        success: true,
+        data: driver,
+        message: "All driver retrieved successfully",
+      });
+    } catch (error) {
+      // Handle any errors that occur during retrieval
+      console.error("Error retrieving driver:", error.message);
+      res.status(500).json({
+        success: false,
+        message: "Failed to retrieve driver",
+        error: error.message,
+      });
+    }
+  };
+exports.getAllHelper= async (req, res) => {
+    try {
+      // Retrieve all JobPost documents from the database
+      const helper = await Helper.find();
+  
+      // Send the retrieved helper as the response
+      res.status(200).json({
+        success: true,
+        data: helper,
+        message: "All helper retrieved successfully",
+      });
+    } catch (error) {
+      // Handle any errors that occur during retrieval
+      console.error("Error retrieving helper:", error.message);
+      res.status(500).json({
+        success: false,
+        message: "Failed to retrieve helper",
+        error: error.message,
+      });
+    }
+  };
+exports.getAllHelper= async (req, res) => {
+    try {
+      // Retrieve all JobPost documents from the database
+      const helper = await Helper.find();
+  
+      // Send the retrieved helper as the response
+      res.status(200).json({
+        success: true,
+        data: helper,
+        message: "All helper retrieved successfully",
+      });
+    } catch (error) {
+      // Handle any errors that occur during retrieval
+      console.error("Error retrieving helper:", error.message);
+      res.status(500).json({
+        success: false,
+        message: "Failed to retrieve helper",
+        error: error.message,
+      });
+    }
+  };
+exports.getAllRoute= async (req, res) => {
+    try {
+      // Retrieve all JobPost documents from the database
+      const helper = await Helper.find();
+  
+      // Send the retrieved helper as the response
+      res.status(200).json({
+        success: true,
+        data: helper,
+        message: "All helper retrieved successfully",
+      });
+    } catch (error) {
+      // Handle any errors that occur during retrieval
+      console.error("Error retrieving helper:", error.message);
+      res.status(500).json({
+        success: false,
+        message: "Failed to retrieve helper",
         error: error.message,
       });
     }
