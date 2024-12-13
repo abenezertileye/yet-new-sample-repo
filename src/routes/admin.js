@@ -3,9 +3,12 @@ const router = express.Router();
 const controller = require('../controllers/admin_controller')
 
 router.post("/create-schedule", controller.createSchedule);
-router.patch("/update-post/:id", controller.updatePost);
-router.delete("/delete-post/:id", controller.deletePost);
-router.get("/get-all-posts", controller.getAllPosts);
+router.patch("/get-all-drivers", controller.getDrivers);
+router.patch("/get-all-helpers", controller.get);
+router.patch("/get-all-routes", controller.updatePost);
+router.patch("/get-all-busses", controller.updatePost);
+router.patch("/get-all-schedule", controller.updatePost);
+
 
 
 
