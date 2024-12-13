@@ -6,9 +6,11 @@ const { validationResult } = require("express-validator");
 const {adminAuthCheck} = require('./middleware/adminAuthCheck')
 
 
-var userRouter = require("./routes/users");
 var adminRouter = require("./routes/admin");
 var adminAuthRoute = require("./routes/adminAuthRoute");
+var userRouter = require("./routes/users");
+var DriverRouter = require("./routes/driver");
+var HelperRouter = require("./routes/helper");
 
 const port = 3000;
 
