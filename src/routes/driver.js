@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const controller = require('../controllers/driver_controller')
+const controller = require('../controllers/auth/driver_controller')
 
 //signup
 router.post('/signup', controller.signup)
