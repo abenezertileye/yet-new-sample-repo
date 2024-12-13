@@ -1,8 +1,8 @@
 const JobPost = require('../models/jobPost')
 
 //create form
-exports.createPost = async (req, res) => {
-  const { title, description, forms, applications } = req.body;
+exports.createSchedule = async (req, res) => {
+  const { driverId, helperId, routeId, busId, date, laps, } = req.body;
   const adminId = req.user.id; // Assuming you have middleware to extract the logged-in admin's ID
 
   try {

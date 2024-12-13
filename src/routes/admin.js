@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/admin_controller')
 
-router.post("/create-posts", controller.createPost);
+router.post("/create-schedule", controller.createSchedule);
 router.patch("/update-post/:id", controller.updatePost);
 router.delete("/delete-post/:id", controller.deletePost);
 router.get("/get-all-posts", controller.getAllPosts);
