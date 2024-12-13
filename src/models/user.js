@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const bcrypt = require('bcrypt')
 
 const UserSchema = new Schema({
   first_name: { type: String, required: true, maxLength: 100 },
@@ -20,6 +19,6 @@ UserSchema.statics.login = async function(email, password){
   }throw Error('incorrect email')
 }
 
-const User = mongoose.model('User', UserSchema)
+const User = mongoose.models.User || mongoose.model("User", UserSchema);
 // Export model
 module.exports = User;
