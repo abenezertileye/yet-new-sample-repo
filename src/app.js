@@ -25,12 +25,13 @@ app.use(express.json());
 app.use(validationMiddleware); // Your express-validator middleware
 
 app.use("/admin",adminAuthCheck, adminRouter);
+
 app.use("/users", userRouter);
 app.use('/admin-auth', adminAuthRoute)
 
 
 // Set up mongoose connection
-const mongoDB = "mongodb://localhost:27017/resume_screening_db";
+const mongoDB = "mongodb://localhost:27017/yet_nw_sample_db";
 
 main().catch((err) => console.log(err));
 
