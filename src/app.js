@@ -9,8 +9,8 @@ const {adminAuthCheck} = require('./middleware/adminAuthCheck')
 var adminRouter = require("./routes/admin");
 var adminAuthRoute = require("./routes/adminAuthRoute");
 var userRouter = require("./routes/users");
-var DriverRouter = require("./routes/driver");
-var HelperRouter = require("./routes/helper");
+var driverRouter = require("./routes/driver");
+var helperRouter = require("./routes/helper");
 
 const port = 3000;
 
@@ -27,8 +27,9 @@ app.use(express.json());
 app.use(validationMiddleware); // Your express-validator middleware
 
 app.use("/admin",adminAuthCheck, adminRouter);
-
 app.use("/users", userRouter);
+app.use("/driver", driverRouter);
+app.use("/helper", helperRouter);
 app.use('/admin-auth', adminAuthRoute)
 
 
