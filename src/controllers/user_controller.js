@@ -3,23 +3,23 @@ const fs = require("fs"); // F
 const Schedule = require('../models/schedule');
 
 
-exports.getAllBuses = async (req, res) => {
+exports.getAllSchedules = async (req, res) => {
     try {
       // Retrieve all JobPost documents from the database
-      const busses = await Bus.find();
+      const schedule = await Schedule.find();
   
-      // Send the retrieved busses as the response
+      // Send the retrieved schedule as the response
       res.status(200).json({
         success: true,
-        data: busses,
-        message: "All busses retrieved successfully",
+        data: schedule,
+        message: "All schedule retrieved successfully",
       });
     } catch (error) {
       // Handle any errors that occur during retrieval
-      console.error("Error retrieving busses:", error.message);
+      console.error("Error retrieving schedule:", error.message);
       res.status(500).json({
         success: false,
-        message: "Failed to retrieve busses",
+        message: "Failed to retrieve schedule",
         error: error.message,
       });
     }
