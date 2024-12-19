@@ -4,7 +4,7 @@ const controller = require('../controllers/user_controller')
 const authController = require('../controllers/auth/user_auth_controller')
 
 // GET all post
-router.get("/get-all-busses", controller.getAllSchedules);
+router.get("/get-all-routes", controller.getAllRoute);
 router.post("/buy-ticket/:id", controller.buyTicket);
 //signup
 router.post('/signup', authController.signup)
