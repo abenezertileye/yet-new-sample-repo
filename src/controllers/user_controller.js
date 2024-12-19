@@ -1,5 +1,6 @@
 const path = require("path");
 const Schedule = require('../models/schedule');
+const Route = require('../models/route')
 
 
 exports.getAllSchedules = async (req, res) => {
@@ -64,3 +65,24 @@ exports.getAllSchedules = async (req, res) => {
       });
     }
   };
+  exports.getAllRoute= async (req, res) => {
+      try {
+        // Retrieve all JobPost documents from the database
+        const route = await Route.find();
+    
+        // Send the retrieved route as the response
+        res.status(200).json({
+          success: true,
+          data: route,
+          message: "All route retrieved successfully",
+        });
+      } catch (error) {
+        // Handle any errors that occur during retrieval
+        console.error("Error retrieving route:", error.message);
+        res.status(500).json({
+          success: false,
+          message: "Failed to retrieve route",
+          error: error.message,
+        });
+      }
+    };
