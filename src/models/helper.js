@@ -9,6 +9,6 @@ const HelperSchema = new Schema({
   password: { type: String, required: true, maxLength: 100 },
 });
 
-const Helper = mongoose.model('User', HelperSchema)
+const Helper = mongoose.model('Helper', HelperSchema)
 // Export model
 module.exports = Helper;
