@@ -2,9 +2,16 @@ const express = require('express');
 const app = express();
 const mongoose = require("mongoose");
 const path = require('path')
+const cors = require("cors");
 const { validationResult } = require("express-validator");
 const {adminAuthCheck} = require('./middleware/adminAuthCheck')
 
+// Use CORS to allow all origins and all methods
+app.use(cors({
+  origin: '*', // Allow all origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'], // Allow all HTTP methods
+  credentials: true, // Allow credentials (cookies, etc.)
+}));
 
 var adminRouter = require("./routes/admin");
 var adminAuthRoute = require("./routes/adminAuthRoute");
@@ -50,6 +57,7 @@ async function main() {
 }
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is listening at http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server is listening at http://0.0.0.0:${port}`);
 });
+
