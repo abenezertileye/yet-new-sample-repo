@@ -44,19 +44,19 @@ exports.createSchedule = async (req, res) => {
 
 //new route
 exports.createRoute = async (req, res) => {
-  const { route_name, route} = req.body;
+  const { route_name, routes} = req.body;
   const adminId = req.user.id; // Assuming middleware to extract admin's ID
 
   try {
     // Validate required fields
-    if (!route_name || !route) {
+    if (!route_name || !routes) {
       return res.status(400).json({ message: "All fields are required." });
     }
 
     // Create the schedule
     const newRoute = await Route.create({
       routeName: route_name,
-      route,
+      route: routes,
       createdBy: adminId,
     });
 
